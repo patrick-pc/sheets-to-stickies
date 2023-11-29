@@ -1,0 +1,12 @@
+{
+  "name": "sheets-to-stickies",
+  "id": "1311205385869306057",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": ["figma", "figjam"],
+  "networkAccess": {
+    "allowedDomains": ["https://sheetdb.io"]
+  }
+}
