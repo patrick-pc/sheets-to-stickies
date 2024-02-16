@@ -54,16 +54,23 @@ if (figma.editorType === "figjam") {
 }
 
 async function fetchSheetData() {
-  const SHEET_ID = "4zeedi293ylv0";
+  const SHEET_ID = "sg3gr3eo8u6nw";
 
   try {
     const response = await fetch(`https://sheetdb.io/api/v1/${SHEET_ID}`);
     const data = await response.json();
 
-    return data
-      .map((obj: { "Idea:": string }) => obj["Idea:"])
-      .filter((idea: string) => idea && idea.match(/^\d+\..+?$/gm)) // Keep only items that match the regex
-      .flatMap((idea: string) => idea.match(/^\d+\..+?$/gm) || []); // Flatten the array of string arrays
+    console.log("@@@ data", data);
+
+    return data.flatMap(
+      (obj: {
+        Bot1: string;
+        Bot2: string;
+        Bot3: string;
+        Bot4: string;
+        Bot5: string;
+      }) => [obj["Bot1"], obj["Bot2"], obj["Bot3"], obj["Bot4"], obj["Bot5"]]
+    );
   } catch (error) {
     console.error("Error:", error);
     return [];
